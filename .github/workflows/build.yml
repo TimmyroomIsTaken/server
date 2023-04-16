@@ -21,8 +21,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       working-directory: ./demo
-      GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-      MERGE_LABELS: ""
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 11
@@ -37,9 +35,6 @@ jobs:
     - name: Execute Gradle build
       run: ./gradlew build
       working-directory: ${{ env.working-directory }}
-      
-    - name: automerge
-      uses: "pascalgn/automerge-action@v0.15.6"
 
 
 #     - name: Setup Gradle
