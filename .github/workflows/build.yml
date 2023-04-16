@@ -20,7 +20,7 @@ jobs:
 
     runs-on: ubuntu-latest
     env:
-      working-directory: ./server/demo
+      working-directory: ./demo
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 11
