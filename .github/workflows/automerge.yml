@@ -1,7 +1,6 @@
 name: automerge
 on:
-  repository_dispatch:
-    types: [checks-complete]
+  status: {}
 jobs:
   automerge:
     runs-on: ubuntu-latest
