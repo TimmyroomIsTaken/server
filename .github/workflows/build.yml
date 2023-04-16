@@ -33,7 +33,7 @@ jobs:
       working-directory: ${{ env.working-directory }}
       
     - name: Execute Gradle build
-      run: ./gradlew build
+      run: ./gradlew clean test --info
       working-directory: ${{ env.working-directory }}
 
 #     - name: Setup Gradle
