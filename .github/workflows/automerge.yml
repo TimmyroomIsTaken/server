@@ -1,9 +1,10 @@
 name: automerge
 on:
-  pull_request:
-    types: [labeled]
+  workflow_run:
+    workflows: [Spring CI With Gradle]
+    types: [completed]
     branches:
-      - main
+        - main
 jobs:
   automerge:
     runs-on: ubuntu-latest
