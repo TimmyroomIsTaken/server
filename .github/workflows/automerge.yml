@@ -5,9 +5,9 @@ jobs:
   automerge:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - id: automerge
-        name: automerge
+      - name: gitCheckOut
+        uses: actions/checkout@v3
+      - name: automerge
         uses: "pascalgn/automerge-action@v0.15.6"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
