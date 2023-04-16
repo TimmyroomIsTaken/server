@@ -7,8 +7,8 @@
 
 - Library
  - spring-boot-starter-web
-  -spring-boot-starter-tomcat: 톰캣 (웹서버)
-  -spring-webmvc: 스프링 웹 MVC
+  - spring-boot-starter-tomcat: 톰캣 (웹서버)
+  - spring-webmvc: 스프링 웹 MVC
  - spring-boot-starter-thymeleaf: 타임리프 템플릿 엔진(View)
  - spring-boot-starter-logging
   - logback, slf4j
