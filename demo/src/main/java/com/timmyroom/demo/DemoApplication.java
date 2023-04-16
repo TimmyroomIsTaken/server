@@ -1,4 +1,4 @@
-package timmyroom.demo;
+package com.timmyroom.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
