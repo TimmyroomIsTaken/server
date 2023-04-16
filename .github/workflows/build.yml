@@ -17,7 +17,6 @@ permissions:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     env:
       working-directory: ./demo
@@ -35,6 +34,15 @@ jobs:
     - name: Execute Gradle build
       run: ./gradlew build
       working-directory: ${{ env.working-directory }}
+      
+  automerge:
+    runs-on: ubuntu-latest
+    steps:
+      - id: automerge
+        name: automerge
+        uses: "pascalgn/automerge-action@v0.15.6"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 
 #     - name: Setup Gradle
 #       uses: gradle/gradle-build-action@v2
