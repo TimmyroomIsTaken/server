@@ -35,6 +35,9 @@ jobs:
     - name: Execute Gradle build
       run: ./gradlew build
       working-directory: ${{ env.working-directory }}
+  automerge:
+    name: automerge
+    uses: ./.github/workflows/automerge.yml
 
 
 #     - name: Setup Gradle
