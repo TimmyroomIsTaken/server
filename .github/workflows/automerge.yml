@@ -14,5 +14,4 @@ jobs:
         uses: "plm9606/automerge_actions@1.2.3"
         with: 
           label-name: "build"
-        env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
