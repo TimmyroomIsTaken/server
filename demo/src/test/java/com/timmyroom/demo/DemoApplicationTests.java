@@ -1,4 +1,4 @@
-package timmyroom.demo;
+package com.timmyroom.demo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
