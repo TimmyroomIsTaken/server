@@ -1,17 +1,20 @@
 name: automerge
 on:
-  pull_request:
+  workflow_run:
+    workflows: ["Spring CI With Gradle"]
     types:
-      - labeled
-    branches: [ "main" ]
+      - completed
+  check_suite:
+    types:
+      - completed
   status: {}
 jobs:
   automerge:
     runs-on: ubuntu-latest
     steps:
-      - id: automerge
-        name: automerge
-        uses: "plm9606/automerge_actions@1.2.3"
-        with: 
-          label-name: "build"
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: automerge
+        uses: "pascalgn/automerge-action@v0.15.6"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          MERGE_LABELS: ""
+          LOG: "TRACE"
