@@ -1,6 +1,6 @@
 name: automerge
 on:
-  status: {}
+  workflow_call
 jobs:
   automerge:
     runs-on: ubuntu-latest
