@@ -38,4 +38,4 @@ jobs:
         working-directory: ./demo
       with:
         arguments: build
-        cache-read-only: ${{ github.ref != 'refs/heads/main' && github.ref != 'refs/heads/develop' }}
+        cache-read-only: ${github.ref != 'refs/heads/main'}
