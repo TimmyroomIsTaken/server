@@ -3,19 +3,7 @@ on:
   pull_request:
     types:
       - labeled
-      - unlabeled
-      - synchronize
-      - opened
-      - edited
-      - ready_for_review
-      - reopened
-      - unlocked
-  pull_request_review:
-    types:
-      - submitted
-  check_suite:
-    types:
-      - completed
+    branches: [ "main" ]
   status: {}
 jobs:
   automerge:
@@ -23,6 +11,8 @@ jobs:
     steps:
       - id: automerge
         name: automerge
-        uses: "pascalgn/automerge-action@v0.15.6"
+        uses: "plm9606/automerge_actions@1.2.3"
+        with: 
+          label-name: "build"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
