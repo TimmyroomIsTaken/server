@@ -1,9 +1,11 @@
 package com.timmyroom.repository;
 
 import com.timmyroom.domain.Member;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
+@Repository // 스프링이 레포지터리네~ 하고 등록해준다
 public class MemoryMemberRepository implements MemberRepository {
 
     private static Map<Long, Member> store = new HashMap<>();
