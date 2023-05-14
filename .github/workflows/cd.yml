@@ -35,7 +35,7 @@ jobs:
       run: |
         docker login -u $DOCKER_USERNAME -p $DOCKER_TOKEN
         docker build -t $DOCKER_REPO .
-        docker push $DOCKER_USERNAME
+        docker push $DOCKER_REPO
       working-directory: ${{ env.working-directory }}
         
     - name: EC2 Docker Run
