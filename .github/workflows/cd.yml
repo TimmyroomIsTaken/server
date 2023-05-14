@@ -46,6 +46,7 @@ jobs:
         key: ${{ secrets.EC2_KEY }}
         script: |
             sudo docker rm -f $(docker ps -qa)
+            sudo docker rmi -f $DOCKER_REPO
             sudo docker pull $DOCKER_REPO
             docker-compose up -d
             docker image prune -f
