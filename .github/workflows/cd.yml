@@ -45,7 +45,7 @@ jobs:
         username: ubuntu
         key: ${{ secrets.EC2_KEY }}
         script: |
-          docker rm -f $(docker ps -qa)
-          docker rmi $DOCKER_REPO
-          docker pull $DOCKER_REPO
-          docker run $DOCKER_REPO
+            sudo docker rm -f $(docker ps -qa)
+            sudo docker pull $DOCKER_REPO
+            docker-compose up -d
+            docker image prune -f
