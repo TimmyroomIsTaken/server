@@ -15,5 +15,17 @@ jobs:
     - name: Build the Docker image
       run:
         docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
-        docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/도커 레파지토리 이름 .
-        docker push ${{ secrets.DOCKER_USERNAME }}/도커 레파지토리 이름
+        docker build -t ${{ secrets.DOCKERHUB_REPO_MOYO }}
+        docker push ${{ secrets.DOCKER_USERNAME }}
+        
+    - name: EC2 Docker Run
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ubuntu
+        key: ${{ secrets.EC2_KEY }}
+        script: |
+          docker rm -f $(docker ps -qa)
+          docker rmi ${{ secrets.DOCKER_USERNAME }}/도커 레파지토리 이름
+          docker pull ${{ secrets.DOCKER_USERNAME }}/도커 레파지토리 이름
+          docker-compose up -d
