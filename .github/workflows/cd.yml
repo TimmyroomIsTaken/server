@@ -33,6 +33,7 @@ jobs:
         docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
         docker build -t ${{ secrets.DOCKERHUB_REPO_MOYO }}
         docker push ${{ secrets.DOCKER_USERNAME }}
+      working-directory: ${{ env.working-directory }}
         
     - name: EC2 Docker Run
       uses: appleboy/ssh-action@master
