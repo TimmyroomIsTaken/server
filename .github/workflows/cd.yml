@@ -33,7 +33,7 @@ jobs:
 
     - name: Build the Docker image
       run: |
-        docker login -u $DOCKER_USERNAME -p $DOCKER_TOKEN
+        echo $DOCKER_TOKEN | docker login -u $DOCKER_USERNAME --password-stdin
         docker build -t $DOCKER_REPO .
         docker push $DOCKER_REPO
       working-directory: ${{ env.working-directory }}
@@ -46,7 +46,7 @@ jobs:
         key: ${{ secrets.EC2_KEY }}
         script: |
             sudo docker rm -f $(docker ps -qa)
-            sudo docker rmi -f $DOCKER_REPO
-            sudo docker pull $DOCKER_REPO
+            sudo docker rmi -f $DOCKER_USERNAME/$DOCKER_REPO
+            sudo docker pull $DOCKER_USERNAME/$DOCKER_REPO
             docker-compose up -d
             docker image prune -f
